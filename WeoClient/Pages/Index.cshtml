@@ -1,0 +1,27 @@
+@page
+@model IndexModel
+
+<nav class="navbar navbar-dark bg-primary sticky-top">
+	<div class="container">
+		<div class="d-flex justify-content-between w-100">
+			<span class="navbar-brand h1 mb-0">Knoema</span>
+			<div class="d-flex">
+				<input class="form-control me-2" id="Country" type="search" list="CountryList" placeholder="Укажите страну" />
+				<datalist id="CountryList">
+					@foreach (var c in Model.Countries)
+					{
+						<option value="@c"></option>
+					}
+				</datalist>
+				<input class="btn btn-outline-light" type="button" value="Перейти" onclick="loadView()" />
+			</div>
+		</div>
+	</div>
+</nav>
+<div class="container mt-3" id="View"></div>
+
+<script>
+	let loadView = () => fetch(`?handler=view&country=${Country.value}`)
+		.then(resp => resp.text())
+		.then(text => View.innerHTML = text);
+</script>

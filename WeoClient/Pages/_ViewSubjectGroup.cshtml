@@ -1,0 +1,12 @@
+@model SubjectGroupViewModel
+
+<tr>
+	<td rowspan="@Model.Count">@Model.SubjectDescriptor</td>
+	<partial name="_ViewSubjectGroupWeo" model="@Model.Weos.First()" />
+</tr>
+@foreach (var w in Model.Weos.Skip(1))
+{
+	<tr>
+		<partial name="_ViewSubjectGroupWeo" model="@w" />
+	</tr>
+}

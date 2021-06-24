@@ -1,0 +1,26 @@
+@model ViewViewModel
+
+<h1>@Model.Country</h1>
+<small class="text-muted">ISO: @Model.ISO; Country Code: @Model.CountryCode</small>
+<div class="table-responsive">
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th>Subject Descriptor</th>
+				<th>WEO Subject Code</th>
+				<th>Subject Notes</th>
+				<th>Units</th>
+				<th>Scale</th>
+				<th>Country/series-Specific Notes</th>
+				<th>Estimates Start After</th>
+				<th>Total Profit</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var g in Model.SubjectGroups)
+			{
+				<partial name="_ViewSubjectGroup" model="@g" />
+			}
+		</tbody>
+	</table>
+</div>

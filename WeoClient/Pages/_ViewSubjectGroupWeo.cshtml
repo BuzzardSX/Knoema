@@ -1,0 +1,11 @@
+@model SubjectGroupWeoViewModel
+
+<td>@Model.SubjectCode</td>
+<td>@Model.SubjectNotes</td>
+<td>@Model.Units</td>
+<td>@Model.Scale</td>
+<td>
+	<a href="#" title="@Model.SpecificNotes">Read</a>
+</td>
+<td>@Model.EstimatesStartAfter</td>
+<td>@(Model.TotalProfit?.ToString("N2") ?? "n/a")</td>
